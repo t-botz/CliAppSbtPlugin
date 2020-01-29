@@ -17,5 +17,5 @@ So far my solution is to run, somehow, this library in a separate JVM. This proj
 ## Runnning the tests
 
 ```sh
-sbt publishLocal scripted
+sbt +publishLocal +scripted
 ```
