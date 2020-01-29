@@ -1,0 +1,1 @@
+addSbtPlugin("com.thibaultdelor" % "mysbtplugin" % sys.props("plugin.version"))
