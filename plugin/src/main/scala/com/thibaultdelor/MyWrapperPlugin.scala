@@ -5,14 +5,19 @@ import sbt.Keys._
 import sbt._
 
 object MyWrapperPlugin extends AutoPlugin {
+  override def requires = plugins.JvmPlugin
+
   override def trigger: PluginTrigger = allRequirements
 
-  val CliConfig : Configuration = config("myConfig")
 
   object autoImport {
+    val CliConfig : Configuration = config("myConfig")
     val runCli = taskKey[Unit]("Run the CLI App")
   }
+
   import autoImport._
+
+  override def projectConfigurations: Seq[Configuration] = Seq(CliConfig)
 
   override lazy val projectSettings = Seq(
     ivyConfigurations += CliConfig,
